@@ -309,10 +309,8 @@ def main():
         print("FAIL: unexpected size", img.size, file=sys.stderr)
         return 1
 
-    path = os.path.join(here, "entry.png")
+    path = os.path.join(out_dir, "entry.png")
     img.save(path, format="PNG")
-    if out_dir != here:
-        img.save(os.path.join(out_dir, "entry.png"), format="PNG")
 
     with open(path, "rb") as fh:
         digest = hashlib.sha256(fh.read()).hexdigest()
